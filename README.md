@@ -2,7 +2,7 @@
 
 An interactive HTML prototype of the revamped **Curie.md** website, built from a Claude design composition. It is a single self-contained demo (Home, Briefs, Games, AI Tools pages with working in-page navigation) used to preview the redesign direction and share it with the team.
 
-**Live demo:** https://shrirambharadwaj.github.io/curie-website-prototype/
+**Live demo:** https://shriram-bharadwaj-zoomrx.github.io/curie-website-revamp/
 
 ## Contents
 
