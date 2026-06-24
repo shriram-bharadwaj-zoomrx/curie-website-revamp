@@ -37,6 +37,9 @@ body { margin: 0; overflow: hidden; }
   --surface-alt:#F1ECFA;
   --brand-text:#574BA6;
 }
+:root{ --page-px:44px; --grid-3:repeat(3,1fr); --grid-2:1fr 1fr; --grid-ai:1.6fr 1fr; --h1:36px; }
+@media (max-width:1024px){ :root{ --page-px:32px; --grid-3:1fr 1fr; --grid-ai:1fr; --h1:32px; } }
+@media (max-width:768px){ :root{ --page-px:18px; --grid-3:1fr; --grid-2:1fr; --grid-ai:1fr; --h1:26px; } }
 html,body{background:var(--canvas);}
 #dc-root *{transition:background-color .25s ease,color .2s ease,border-color .25s ease;}
 </style>
@@ -115,13 +118,13 @@ html,body{background:var(--canvas);}
       <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
         <div>
           <!-- Hero: split layout -->
-          <section style="padding:38px 40px 30px; display:flex; gap:32px; align-items:flex-start; border-bottom:1px solid rgba(var(--ink),0.06);">
+          <section style="padding:38px var(--page-px) 30px; display:flex; gap:32px; align-items:flex-start; border-bottom:1px solid rgba(var(--ink),0.06);">
             <div style="flex:1; min-width:0;">
               <div style="display:inline-flex; align-items:center; gap:7px; background:rgba(97,83,189,0.1); border:1px solid rgba(97,83,189,0.22); border-radius:100px; padding:4px 13px 4px 9px; margin-bottom:18px;">
                 <div style="width:6px; height:6px; background:#50e3c2; border-radius:50%;"></div>
                 <span style="font-size:10px; font-weight:800; letter-spacing:.07em; text-transform:uppercase; color:var(--brand-text);">Free for all healthcare professionals</span>
               </div>
-              <h1 style="font-family:'Nunito Sans',-apple-system,sans-serif; font-size:36px; line-height:1.15; color:rgb(var(--ink)); letter-spacing:-.01em; margin:0 0 15px; font-weight:400;">The medical platform<br><em style="color:var(--brand-text);">built for busy physicians</em></h1>
+              <h1 style="font-family:'Nunito Sans',-apple-system,sans-serif; font-size:var(--h1); line-height:1.15; color:rgb(var(--ink)); letter-spacing:-.01em; margin:0 0 15px; font-weight:400;">The medical platform<br><em style="color:var(--brand-text);">built for busy physicians</em></h1>
               <p style="font-size:14px; line-height:1.72; color:rgba(var(--ink),0.57); margin:0 0 24px; max-width:380px; font-weight:400;">Curie delivers <strong style="color:rgba(var(--ink),0.85); font-weight:600;">100-word medical briefs</strong>, physician podcasts, brain games, and free AI clinical tools — verified and updated daily for every HCP.</p>
               <div style="display:flex; gap:10px; margin-bottom:26px;">
                 <div onClick="{{ goBriefs }}" style="--ink:255,255,255;display:inline-flex; align-items:center; gap:7px; background:#6153BD; color:rgb(var(--ink)); font-size:13px; font-weight:700; padding:10px 20px; border-radius:8px; cursor:pointer;">
@@ -130,7 +133,7 @@ html,body{background:var(--canvas);}
                 </div>
                 <div style="display:inline-flex; align-items:center; background:rgba(var(--ink),0.06); color:rgba(var(--ink),0.75); font-size:13px; font-weight:600; padding:10px 20px; border-radius:8px; border:1px solid rgba(var(--ink),0.12); cursor:pointer;">Download App</div>
               </div>
-              <div style="display:flex; align-items:center; gap:18px;">
+              <div style="display:flex; align-items:center; gap:18px; flex-wrap:wrap; row-gap:10px;">
                 <div style="display:flex; align-items:center; gap:6px;">
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0E9E84" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/></svg>
                   <span style="font-size:12px; font-weight:700; color:rgba(var(--ink),0.7);">100K+ HCPs</span>
@@ -177,7 +180,7 @@ html,body{background:var(--canvas);}
           </section>
 
           <!-- Briefs grid -->
-          <section style="padding:24px 40px 26px; border-bottom:1px solid rgba(var(--ink),0.06);">
+          <section style="padding:24px var(--page-px) 26px; border-bottom:1px solid rgba(var(--ink),0.06);">
             <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:16px;">
               <div>
                 <p style="font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:rgba(var(--ink),0.28); margin:0 0 3px;">Today's Briefs</p>
@@ -204,7 +207,7 @@ html,body{background:var(--canvas);}
           </section>
 
           <!-- Podcasts -->
-          <section style="padding:22px 40px 24px; border-bottom:1px solid rgba(var(--ink),0.06);">
+          <section style="padding:22px var(--page-px) 24px; border-bottom:1px solid rgba(var(--ink),0.06);">
             <p style="font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:rgba(var(--ink),0.28); margin:0 0 3px;">New Episodes</p>
             <p style="font-family:'Nunito Sans',-apple-system,sans-serif; font-size:20px; color:rgb(var(--ink)); font-weight:400; margin:0 0 16px;">Medical Podcasts for Physicians</p>
             <div style="{{ podcastGridStyle }}">
@@ -232,7 +235,7 @@ html,body{background:var(--canvas);}
           </section>
 
           <!-- Games -->
-          <section style="padding:22px 40px 24px; border-bottom:1px solid rgba(var(--ink),0.06);">
+          <section style="padding:22px var(--page-px) 24px; border-bottom:1px solid rgba(var(--ink),0.06);">
             <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:16px;">
               <div>
                 <p style="font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:rgba(var(--ink),0.28); margin:0 0 3px;">Brain Games</p>
@@ -260,8 +263,8 @@ html,body{background:var(--canvas);}
           </section>
 
           <!-- AI Tools teaser -->
-          <section onClick="{{ goAITools }}" style="padding:22px 40px 32px; cursor:pointer;">
-            <div style="background:linear-gradient(135deg,rgba(97,83,189,0.18),rgba(97,83,189,0.1)); border:1px solid rgba(97,83,189,0.28); border-radius:12px; padding:22px 26px; display:flex; align-items:center; justify-content:space-between; gap:20px;">
+          <section onClick="{{ goAITools }}" style="padding:22px var(--page-px) 32px; cursor:pointer;">
+            <div style="background:linear-gradient(135deg,rgba(97,83,189,0.18),rgba(97,83,189,0.1)); border:1px solid rgba(97,83,189,0.28); border-radius:12px; padding:22px 26px; display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; row-gap:14px;">
               <div>
                 <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--brand-text)" stroke-width="2"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
@@ -281,11 +284,11 @@ html,body{background:var(--canvas);}
       <!-- ===== BRIEFS PAGE ===== -->
       <sc-if value="{{ isBriefs }}" hint-placeholder-val="{{ false }}">
         <div>
-          <section style="padding:34px 44px 26px; border-bottom:1px solid rgba(var(--ink),0.06);">
+          <section style="padding:34px var(--page-px) 26px; border-bottom:1px solid rgba(var(--ink),0.06);">
             <h1 style="font-family:'Nunito Sans',-apple-system,sans-serif; font-size:28px; color:rgb(var(--ink)); letter-spacing:-.01em; margin:0 0 8px; font-weight:400;">Daily Healthcare News Briefs for Physicians</h1>
             <p style="font-size:13px; color:rgba(var(--ink),0.5); margin:0; font-weight:500; line-height:1.65; max-width:600px;">100-word summaries of the latest medical research, clinical trials, and healthcare news — curated for busy physicians across all specialties. Free for every verified HCP.</p>
           </section>
-          <section style="padding:14px 44px 0; border-bottom:1px solid rgba(var(--ink),0.06);">
+          <section style="padding:14px var(--page-px) 0; border-bottom:1px solid rgba(var(--ink),0.06);">
             <div style="display:flex; align-items:center; gap:0; border-bottom:1px solid rgba(var(--ink),0.08); margin-bottom:14px;">
               <div onClick="{{ setForYou }}" style="{{ tabForYouStyle }}">For You</div>
               <div onClick="{{ setLatest }}" style="{{ tabLatestStyle }}">Latest</div>
@@ -300,7 +303,7 @@ html,body{background:var(--canvas);}
               <div onClick="{{ setSpecEndocrinology }}" style="{{ pillEndocrinologyStyle }}">Endocrinology</div>
             </div>
           </section>
-          <section style="padding:8px 44px 40px;">
+          <section style="padding:8px var(--page-px) 40px;">
             <sc-for list="{{ filteredBriefs }}" as="brief" hint-placeholder-count="5">
               <div onClick="{{ brief.onSelect }}" style="padding:18px 0; border-bottom:1px solid rgba(var(--ink),0.06); display:flex; gap:20px; align-items:flex-start; cursor:pointer;">
                 <div style="flex:1; min-width:0;">
@@ -332,12 +335,12 @@ html,body{background:var(--canvas);}
       <!-- ===== AI TOOLS PAGE ===== -->
       <sc-if value="{{ isAITools }}" hint-placeholder-val="{{ false }}">
         <div>
-          <section style="padding:48px 52px 40px; border-bottom:1px solid rgba(var(--ink),0.06);">
+          <section style="padding:48px var(--page-px) 40px; border-bottom:1px solid rgba(var(--ink),0.06);">
             <div style="display:inline-flex; align-items:center; gap:7px; background:rgba(80,227,194,0.1); border:1px solid rgba(80,227,194,0.25); border-radius:100px; padding:4px 13px 4px 9px; margin-bottom:18px;">
               <div style="width:6px; height:6px; background:#50e3c2; border-radius:50%;"></div>
               <span style="font-size:10px; font-weight:800; letter-spacing:.07em; text-transform:uppercase; color:#0E9E84;">Free for US healthcare professionals</span>
             </div>
-            <h1 style="font-family:'Nunito Sans',-apple-system,sans-serif; font-size:36px; line-height:1.15; color:rgb(var(--ink)); letter-spacing:-.01em; margin:0 0 14px; font-weight:400;">Free AI Clinical Tools<br><em style="color:var(--brand-text);">for US Physicians</em></h1>
+            <h1 style="font-family:'Nunito Sans',-apple-system,sans-serif; font-size:var(--h1); line-height:1.15; color:rgb(var(--ink)); letter-spacing:-.01em; margin:0 0 14px; font-weight:400;">Free AI Clinical Tools<br><em style="color:var(--brand-text);">for US Physicians</em></h1>
             <p style="font-size:14px; line-height:1.72; color:rgba(var(--ink),0.6); margin:0 0 22px; max-width:560px; font-weight:400;">Curie AI provides free prior authorization letter generators, ICD-10 code lookup, and clinical reading tools — purpose-built for verified US healthcare professionals. No subscription, no patient data stored.</p>
             <div style="display:flex; flex-wrap:wrap; gap:10px;">
               <div style="display:flex; align-items:center; gap:6px; background:rgba(var(--ink),0.06); border:1px solid rgba(var(--ink),0.1); border-radius:100px; padding:5px 13px;">
@@ -354,10 +357,10 @@ html,body{background:var(--canvas);}
               </div>
             </div>
           </section>
-          <section style="padding:32px 52px 36px; border-bottom:1px solid rgba(var(--ink),0.06);">
+          <section style="padding:32px var(--page-px) 36px; border-bottom:1px solid rgba(var(--ink),0.06);">
             <p style="font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:rgba(var(--ink),0.28); margin:0 0 3px;">Available Now</p>
             <p style="font-family:'Nunito Sans',-apple-system,sans-serif; font-size:22px; color:rgb(var(--ink)); font-weight:400; margin:0 0 20px;">Clinical AI Tools</p>
-            <div style="display:grid; grid-template-columns:1.6fr 1fr; gap:16px;">
+            <div style="display:grid; grid-template-columns:var(--grid-ai); gap:16px;">
               <div style="background:var(--surface); border-radius:12px; border:1px solid rgba(var(--ink),0.08); padding:26px; position:relative; overflow:hidden; cursor:pointer;">
                 <div style="position:absolute; top:-50px; right:-50px; width:220px; height:220px; border-radius:50%; background:rgba(97,83,189,0.06);"></div>
                 <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
@@ -412,10 +415,10 @@ html,body{background:var(--canvas);}
               </div>
             </div>
           </section>
-          <section style="padding:28px 52px 40px;">
+          <section style="padding:28px var(--page-px) 40px;">
             <p style="font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:rgba(var(--ink),0.28); margin:0 0 3px;">Common Questions</p>
             <p style="font-family:'Nunito Sans',-apple-system,sans-serif; font-size:22px; color:rgb(var(--ink)); font-weight:400; margin:0 0 18px;">About Curie AI Tools</p>
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+            <div style="display:grid; grid-template-columns:var(--grid-2); gap:14px;">
               <div style="background:var(--surface); border-radius:10px; border:1px solid rgba(var(--ink),0.07); padding:18px;">
                 <h3 style="font-size:13px; font-weight:700; color:rgb(var(--ink)); margin:0 0 8px; line-height:1.4;">How does Curie know what each payer requires?</h3>
                 <p style="font-size:12px; line-height:1.65; color:rgba(var(--ink),0.55); margin:0;">We maintain a curated database of 500+ insurer policy PDFs, extracted and structured using AI. The system automatically maps clinical criteria, documentation requirements, and formulary rules for each payer and medication combination — updated monthly.</p>
@@ -431,11 +434,11 @@ html,body{background:var(--canvas);}
 
       <!-- ===== GAMES PAGE ===== -->
       <sc-if value="{{ isGames }}" hint-placeholder-val="{{ false }}">
-        <div style="padding:40px 44px;">
+        <div style="padding:40px var(--page-px);">
           <p style="font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:rgba(var(--ink),0.28); margin:0 0 4px;">Brain Games</p>
           <h1 style="font-family:'Nunito Sans',-apple-system,sans-serif; font-size:32px; color:rgb(var(--ink)); font-weight:400; margin:0 0 8px; letter-spacing:-.01em;">Daily Medical Puzzles</h1>
           <p style="font-size:14px; color:rgba(var(--ink),0.55); margin:0 0 32px; max-width:480px; font-weight:500;">Sharpen clinical reasoning with daily brain games designed specifically for healthcare professionals. Each puzzle takes under 5 minutes.</p>
-          <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
+          <div style="display:grid; grid-template-columns:var(--grid-3); gap:20px;">
             <div style="background:var(--surface); border-radius:12px; border:1px solid rgba(97,83,189,0.2); overflow:hidden; cursor:pointer;">
               <div style="--ink:255,255,255;height:140px; background:linear-gradient(135deg,#2C2359,#352A56); display:flex; align-items:center; justify-content:center;">
                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(182,169,233,0.6)" stroke-width="1.5" stroke-linecap="round"><path d="M6 12h4M8 10v4M14 11h.01M16 13h.01"/><rect x="2" y="8" width="20" height="12" rx="4"/></svg>
@@ -481,11 +484,11 @@ html,body{background:var(--canvas);}
 
       <!-- ===== PODCASTS PAGE ===== -->
       <sc-if value="{{ isPodcasts }}" hint-placeholder-val="{{ false }}">
-        <div style="padding:40px 44px;">
+        <div style="padding:40px var(--page-px);">
           <p style="font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:rgba(var(--ink),0.28); margin:0 0 4px;">Podcasts</p>
           <h1 style="font-family:'Nunito Sans',-apple-system,sans-serif; font-size:32px; color:rgb(var(--ink)); font-weight:400; margin:0 0 8px; letter-spacing:-.01em;">Medical Podcasts for Physicians</h1>
           <p style="font-size:14px; color:rgba(var(--ink),0.55); margin:0 0 28px; max-width:480px; font-weight:500;">Curated short-form medical podcasts — concise, evidence-based, and designed to fit between patients.</p>
-          <div style="background:var(--surface); border-radius:12px; border:1px solid rgba(var(--ink),0.08); padding:20px; margin-bottom:24px; display:flex; gap:18px; align-items:center;">
+          <div style="background:var(--surface); border-radius:12px; border:1px solid rgba(var(--ink),0.08); padding:20px; margin-bottom:24px; display:flex; gap:18px; align-items:center; flex-wrap:wrap;">
             <div style="--ink:255,255,255;width:72px; height:72px; border-radius:12px; background:linear-gradient(135deg,#2C2359,#6153BD); flex-shrink:0; display:flex; align-items:center; justify-content:center;">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><polygon points="5,3 19,12 5,21" fill="rgba(var(--ink),0.9)"/></svg>
             </div>
@@ -532,11 +535,11 @@ html,body{background:var(--canvas);}
 
       <!-- ===== EDITORIAL PAGE ===== -->
       <sc-if value="{{ isEditorial }}" hint-placeholder-val="{{ false }}">
-        <div style="padding:40px 44px;">
+        <div style="padding:40px var(--page-px);">
           <p style="font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:rgba(var(--ink),0.28); margin:0 0 4px;">Editorial</p>
           <h1 style="font-family:'Nunito Sans',-apple-system,sans-serif; font-size:32px; color:rgb(var(--ink)); font-weight:400; margin:0 0 8px; letter-spacing:-.01em;">Curie Editorial</h1>
           <p style="font-size:14px; color:rgba(var(--ink),0.55); margin:0 0 30px; max-width:500px; font-weight:500;">Expert perspectives, curated specialty insights, and the physicians shaping the next era of medicine.</p>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:18px;">
+          <div style="display:grid; grid-template-columns:var(--grid-2); gap:18px; margin-bottom:18px;">
             <div style="background:var(--surface); border-radius:12px; overflow:hidden; border:1px solid rgba(var(--ink),0.08); cursor:pointer;">
               <div style="--ink:255,255,255;height:180px; background:linear-gradient(135deg,#352A56,#231F41); position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center;">
                 <p style="font-family:'Nunito Sans',-apple-system,sans-serif; font-size:22px; color:rgba(var(--ink),0.25); font-style:italic; text-align:center; padding:20px;">Rising Voices<br>in Oncology</p>
@@ -577,7 +580,7 @@ html,body{background:var(--canvas);}
 
       <!-- ===== NEWSLETTER PAGE ===== -->
       <sc-if value="{{ isNewsletter }}" hint-placeholder-val="{{ false }}">
-        <div style="padding:60px 44px; display:flex; flex-direction:column; align-items:center; text-align:center; max-width:560px; margin:0 auto;">
+        <div style="padding:60px var(--page-px); display:flex; flex-direction:column; align-items:center; text-align:center; max-width:560px; margin:0 auto;">
           <div style="--ink:255,255,255;width:56px; height:56px; background:linear-gradient(135deg,#6153BD,var(--brand-text)); border-radius:16px; display:flex; align-items:center; justify-content:center; margin-bottom:20px;">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           </div>
@@ -589,7 +592,7 @@ html,body{background:var(--canvas);}
             <div style="--ink:255,255,255;display:inline-flex; align-items:center; background:#6153BD; color:rgb(var(--ink)); font-size:13px; font-weight:700; padding:11px 20px; border-radius:8px; cursor:pointer; flex-shrink:0;">Subscribe</div>
           </div>
           <p style="font-size:12px; color:rgba(var(--ink),0.35); font-weight:500; margin:0 0 32px;">Free · No spam · Unsubscribe anytime</p>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; width:100%; text-align:left;">
+          <div style="display:grid; grid-template-columns:var(--grid-2); gap:12px; width:100%; text-align:left;">
             <div style="background:var(--surface); border-radius:10px; border:1px solid rgba(var(--ink),0.07); padding:14px; display:flex; gap:10px; align-items:flex-start;">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0E9E84" stroke-width="2" stroke-linecap="round" style="flex-shrink:0; margin-top:1px;"><polyline points="20,6 9,17 4,12"/></svg>
               <div>
@@ -680,7 +683,7 @@ html,body{background:var(--canvas);}
           <span style="font-size:12px; color:rgba(var(--ink),0.4); font-weight:500;">45 second read · Physician-verified</span>
         </div>
         <!-- Actions -->
-        <div style="display:flex; gap:10px; margin-bottom:28px; padding-bottom:24px; border-bottom:1px solid rgba(var(--ink),0.08);">
+        <div style="display:flex; gap:10px; margin-bottom:28px; padding-bottom:24px; flex-wrap:wrap; row-gap:10px; border-bottom:1px solid rgba(var(--ink),0.08);">
           <div style="display:inline-flex; align-items:center; gap:7px; background:rgba(80,227,194,0.15); color:#0E9E84; font-size:13px; font-weight:700; padding:9px 18px; border-radius:8px; cursor:pointer; border:1px solid rgba(80,227,194,0.25);">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 9V5a3 3 0 00-3-3l-4 9v11h11.28a2 2 0 002-1.7l1.38-9a2 2 0 00-2-2.3H14z"/><path d="M7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3"/></svg>
             Helpful
@@ -818,9 +821,9 @@ class Component extends DCLogic {
       tabForYouStyle: TS('foryou'), tabLatestStyle: TS('latest'), tabVoiceStyle: TS('voice'),
       pillAllStyle: PS('all'), pillCardiologyStyle: PS('Cardiology'), pillOncologyStyle: PS('Oncology'),
       pillNeurologyStyle: PS('Neurology'), pillNephrologyStyle: PS('Nephrology'), pillEndocrinologyStyle: PS('Endocrinology'),
-      briefGridStyle: isMobile ? { display:'grid', gridTemplateColumns:'1fr', gap:'12px' } : { display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:'12px' },
-      podcastGridStyle: isMobile ? { display:'grid', gridTemplateColumns:'1fr', gap:'12px' } : { display:'grid', gridTemplateColumns:'1fr 1fr', gap:'12px' },
-      gamesGridStyle: isMobile ? { display:'grid', gridTemplateColumns:'1fr', gap:'10px' } : { display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:'10px' },
+      briefGridStyle: { display:'grid', gridTemplateColumns:'var(--grid-3)', gap:'12px' },
+      podcastGridStyle: { display:'grid', gridTemplateColumns:'var(--grid-2)', gap:'12px' },
+      gamesGridStyle: { display:'grid', gridTemplateColumns:'var(--grid-3)', gap:'10px' },
       pageName: {home:'Home',briefs:'Briefs',aitools:'AI Solutions',games:'Games',podcasts:'Podcasts',editorial:'Editorial',newsletter:'Newsletter'}[p]||'Home',
       mbNavHomeStyle: MN('home'), mbNavBriefsStyle: MN('briefs'),
       mbNavGamesStyle: MN('games'), mbNavPodcastsStyle: MN('podcasts'), mbNavAIStyle: MN('aitools'),
