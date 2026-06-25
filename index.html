@@ -201,15 +201,15 @@ html,body{background:var(--canvas);}
             </div>
             <div style="{{ briefGridStyle }}">
               <sc-for list="{{ homeBriefs }}" as="brief" hint-placeholder-count="3">
-                <div onClick="{{ brief.onSelect }}" style="background:var(--surface); border-radius:10px; border:1px solid rgba(var(--ink),0.07); padding:14px; cursor:pointer;">
-                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <div onClick="{{ brief.onSelect }}" style="background:var(--surface); border-radius:12px; border:1px solid rgba(var(--ink),0.07); padding:18px; cursor:pointer;">
+                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:11px;">
                     <div style="{{ brief.tagStyle }}"><span style="{{ brief.tagTextStyle }}">{{ brief.specialty }}</span></div>
-                    <span style="font-size:9px; font-weight:700; color:rgba(var(--ink),0.28);">{{ brief.source }}</span>
+                    <span style="font-size:10px; font-weight:700; color:rgba(var(--ink),0.3);">{{ brief.source }}</span>
                   </div>
-                  <h4 style="font-size:12px; font-weight:700; line-height:1.4; color:rgb(var(--ink)); margin:0 0 6px;">{{ brief.title }}</h4>
-                  <p style="font-size:11px; line-height:1.58; color:rgba(var(--ink),0.48); margin:0 0 9px;">{{ brief.shortSummary }}</p>
-                  <div style="display:flex; justify-content:space-between; align-items:center; padding-top:8px; border-top:1px solid rgba(var(--ink),0.06);">
-                    <span style="font-size:9px; color:rgba(var(--ink),0.28);">{{ brief.date }} · 45 sec</span>
+                  <h4 style="font-size:15px; font-weight:700; line-height:1.45; color:rgb(var(--ink)); margin:0 0 8px;">{{ brief.title }}</h4>
+                  <p style="font-size:13px; line-height:1.62; color:rgba(var(--ink),0.6); margin:0 0 13px;">{{ brief.shortSummary }}</p>
+                  <div style="display:flex; justify-content:space-between; align-items:center; padding-top:11px; border-top:1px solid rgba(var(--ink),0.06);">
+                    <span style="font-size:10px; color:rgba(var(--ink),0.3);">{{ brief.date }} · 45 sec</span>
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(var(--ink),0.3)" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                   </div>
                 </div>
@@ -255,20 +255,29 @@ html,body{background:var(--canvas);}
               <span onClick="{{ goGames }}" style="font-size:12px; font-weight:700; color:#6153BD; cursor:pointer; display:flex; align-items:center; gap:4px;">Play today <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
             </div>
             <div style="{{ gamesGridStyle }}">
-              <div onClick="{{ goGames }}" style="--ink:255,255,255;background:linear-gradient(135deg,#2C2359,#352A56); border-radius:10px; border:1px solid rgba(97,83,189,0.2); padding:16px; text-align:center; cursor:pointer;">
-                <div style="width:44px; height:44px; border-radius:12px; overflow:hidden; margin:0 auto 10px;"><img src="./images/connections.png" alt="Connections" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;"></div>
-                <p style="font-size:12px; font-weight:800; color:rgb(var(--ink)); margin:0 0 2px;">Connections</p>
-                <p style="font-size:10px; color:rgba(var(--ink),0.42); margin:0;">Daily puzzle</p>
+              <div onClick="{{ goGames }}" style="background:var(--surface); border-radius:12px; border:1px solid rgba(var(--ink),0.07); padding:13px 14px; display:flex; align-items:center; gap:13px; cursor:pointer;">
+                <div style="width:54px; height:54px; border-radius:12px; overflow:hidden; flex-shrink:0;"><img src="./images/connections.png" alt="Connections" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;"></div>
+                <div style="flex:1; min-width:0;">
+                  <p style="font-size:15px; font-weight:800; color:rgb(var(--ink)); margin:0 0 3px;">Connections</p>
+                  <p style="font-size:12px; color:rgba(var(--ink),0.5); margin:0;">Daily puzzle</p>
+                </div>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(var(--ink),0.3)" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </div>
-              <div onClick="{{ goGames }}" style="--ink:255,255,255;background:linear-gradient(135deg,#0f2218,#14332a); border-radius:10px; border:1px solid rgba(16,185,129,0.2); padding:16px; text-align:center; cursor:pointer;">
-                <div style="width:44px; height:44px; border-radius:12px; overflow:hidden; margin:0 auto 10px;"><img src="./images/pinpoint.png" alt="Pinpoint" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;"></div>
-                <p style="font-size:12px; font-weight:800; color:rgb(var(--ink)); margin:0 0 2px;">Pinpoint</p>
-                <p style="font-size:10px; color:rgba(var(--ink),0.42); margin:0;">Daily challenge</p>
+              <div onClick="{{ goGames }}" style="background:var(--surface); border-radius:12px; border:1px solid rgba(var(--ink),0.07); padding:13px 14px; display:flex; align-items:center; gap:13px; cursor:pointer;">
+                <div style="width:54px; height:54px; border-radius:12px; overflow:hidden; flex-shrink:0;"><img src="./images/pinpoint.png" alt="Pinpoint" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;"></div>
+                <div style="flex:1; min-width:0;">
+                  <p style="font-size:15px; font-weight:800; color:rgb(var(--ink)); margin:0 0 3px;">Pinpoint</p>
+                  <p style="font-size:12px; color:rgba(var(--ink),0.5); margin:0;">Daily challenge</p>
+                </div>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(var(--ink),0.3)" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </div>
-              <div onClick="{{ goGames }}" style="--ink:255,255,255;background:linear-gradient(135deg,#1B1535,#2C2359); border-radius:10px; border:1px solid rgba(245,158,11,0.2); padding:16px; text-align:center; cursor:pointer;">
-                <div style="width:44px; height:44px; border-radius:12px; overflow:hidden; margin:0 auto 10px;"><img src="./images/strands.png" alt="Strands" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;"></div>
-                <p style="font-size:12px; font-weight:800; color:rgb(var(--ink)); margin:0 0 2px;">Strands</p>
-                <p style="font-size:10px; color:rgba(var(--ink),0.42); margin:0;">Word puzzle</p>
+              <div onClick="{{ goGames }}" style="background:var(--surface); border-radius:12px; border:1px solid rgba(var(--ink),0.07); padding:13px 14px; display:flex; align-items:center; gap:13px; cursor:pointer;">
+                <div style="width:54px; height:54px; border-radius:12px; overflow:hidden; flex-shrink:0;"><img src="./images/strands.png" alt="Strands" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;"></div>
+                <div style="flex:1; min-width:0;">
+                  <p style="font-size:15px; font-weight:800; color:rgb(var(--ink)); margin:0 0 3px;">Strands</p>
+                  <p style="font-size:12px; color:rgba(var(--ink),0.5); margin:0;">Word puzzle</p>
+                </div>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(var(--ink),0.3)" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </div>
             </div>
           </section>
